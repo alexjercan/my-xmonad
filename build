@@ -1,6 +1,6 @@
 #!/bin/sh -eu
 
-SRC_DIR=~/.xmonad
+SRC_DIR=.
 EXE_NAME=xmonad
 output_file=xmonad-x86_64-linux
 
