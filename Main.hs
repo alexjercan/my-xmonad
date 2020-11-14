@@ -102,7 +102,6 @@ myStartupHook = do
           spawnOnce "volumeicon &"
           spawnOnce "trayer --edge top --align right --widthtype request --padding 6 --SetDockType true --SetPartialStrut true --expand true --monitor 1 --transparent true --alpha 0 --tint 0x282c34  --height 22 &"
 
-
 treeselectAction :: TS.TSConfig (X ()) -> X ()
 treeselectAction a = TS.treeselectAction a
    [ Node (TS.TSNode "+ Accessories" "Accessory applications" (return ()))
@@ -111,7 +110,7 @@ treeselectAction a = TS.treeselectAction a
        , Node (TS.TSNode "PCManFM" "File manager" (spawn "pcmanfm")) []
        ]
    , Node (TS.TSNode "+ Games" "fun and games" (return ()))
-       []
+       [ Node (TS.TSNode "Steam" "Steam" (spawn "steam")) []]
    , Node (TS.TSNode "+ Graphics" "graphics programs" (return ()))
        []
    , Node (TS.TSNode "+ Internet" "internet and web programs" (return ()))
@@ -175,6 +174,7 @@ myTreeNavigation = M.fromList
     , ((0, xK_o),        TS.moveTo ["+ Office"])
     , ((0, xK_p),        TS.moveTo ["+ Programming"])
     , ((0, xK_s),        TS.moveTo ["+ System"])
+    , ((0, xK_x),        TS.moveTo ["+ XMonad"])
     ]
 
 myXPConfig :: XPConfig
@@ -298,12 +298,13 @@ xmobarEscape = concatMap doubleLts
         doubleLts '<' = "<<"
         doubleLts x   = [x]
 
+myClickableText :: String -> String -> String
+myClickableText xKeyCode action = "<action=xdotool key " ++ xKeyCode ++ "> " ++ action ++ " </action>"
+
 myWorkspaces :: [String]
-myWorkspaces = clickable . map xmobarEscape
-               $ ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
+myWorkspaces = map (clickable . xmobarEscape) ["1", "2", "3", "4", "5", "6", "7", "8", "9"]
   where
-        clickable l = [ "<action=xdotool key super+" ++ show i ++ "> " ++ ws ++ " </action>" |
-                      (i,ws) <- zip [1..9] l]
+        clickable l = myClickableText ("super+" ++ l) l
 
 myManageHook :: XMonad.Query (Data.Monoid.Endo WindowSet)
 myManageHook = composeAll
