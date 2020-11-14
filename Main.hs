@@ -381,9 +381,10 @@ myKeys =
 main :: IO ()
 main = do
     xmproc0 <- spawnPipe "xmobar -x 0 /home/alex/.config/xmobar/xmobarrc0"
-    xmonad $ ewmh def
+    xmonad $ def
         { manageHook = (isFullscreen --> doFullFloat) <+>  myManageHook <+> manageDocks
-        , handleEventHook    = serverModeEventHookCmd
+        , handleEventHook    = fullscreenEventHook
+                               <+> serverModeEventHookCmd
                                <+> serverModeEventHook
                                <+> serverModeEventHookF "XMONAD_PRINT" (io . putStrLn)
                                <+> docksEventHook
