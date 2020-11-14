@@ -1,0 +1,7 @@
+#!/bin/sh -eu
+
+SRC_DIR=~/.xmonad
+
+cd $SRC_DIR/xmonad && git pull
+cd $SRC_DIR/xmonad-contrib && git pull
+cd $SRC_DIR/xmonad-extras && git pull

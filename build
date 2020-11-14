@@ -1,0 +1,18 @@
+#!/bin/sh -eu
+
+SRC_DIR=~/.xmonad
+EXE_NAME=xmonad
+output_file=xmonad-x86_64-linux
+
+cd $SRC_DIR
+
+cabal new-configure \
+	--enable-optimization \
+	--enable-executable-stripping
+
+cabal new-build
+
+find dist-newstyle -type f -executable -name $EXE_NAME \
+	-exec mv -u '{}' $output_file ';'
+
+ln -sfr $output_file ~/.cabal/bin/xmonad
