@@ -195,7 +195,7 @@ myXPConfig = def
       , autoComplete        = Just 1000
       , showCompletionOnTab = False
       , searchPredicate     = fuzzyMatch
-      , alwaysHighlight     = False
+      , alwaysHighlight     = True
       , maxComplRows        = Nothing      -- set to Just 5 for 5 rows
       }
 
