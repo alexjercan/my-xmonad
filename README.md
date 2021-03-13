@@ -10,7 +10,12 @@ Build xmonad from source using my custom config file.
 * GHC 8.10.3
 
 You also need to add `$HOME/.cabal/bin` and `$HOME/.ghcup/bin` to the system PATH. <br>
-You can do this by adding the following line to the `$HOME/.bash_profile`: `export PATH="$PATH:$HOME/.cabal/bin:$HOME/.ghcup/bin"`
+Examples:
+* export path using .bash_profile:
+  - `$HOME/.bash_profile`: `export PATH="$PATH:$HOME/.cabal/bin:$HOME/.ghcup/bin"`
+* export path using .ghcup/env (default method of ghcup):
+  - `$HOME/.bashrc`: `[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"`
+  - `$HOME/.ghcup/env`: `export PATH="$PATH:$HOME/.cabal/bin:$HOME/.ghcup/bin"`
 
 # Installation
 
@@ -19,11 +24,13 @@ $ git clone https://github.com/alexjercan/my-xmonad.git .xmonad
 $ cd .xmonad
 $ git submodule init
 $ git submodule update
-$ cd X11
-$ autoreconf
-$ cd ..
 $ cabal install
 ```
+
+If the instalation fails follow the instructions on and install all the required packages:
+* [xmonad](https://github.com/xmonad/xmonad)
+* [xmonad-testing](https://github.com/xmonad/xmonad-testing)
+* [X11](https://github.com/xmonad/X11)
 
 Use startx or some other program to start xmonad.<br>
 If using startx add the following line to the `.xinitrc`: `exec xmonad`.
