@@ -107,22 +107,21 @@ treeselectAction a = TS.treeselectAction a
    [ Node (TS.TSNode "+ Accessories" "Accessory applications" (return ()))
        [ Node (TS.TSNode "Picom Toggle on/off" "Compositor for window managers" (spawn "killall picom; picom")) []
        , Node (TS.TSNode "Nitrogen" "Wallpaper viewer and setter" (spawn "nitrogen")) []
-       , Node (TS.TSNode "PCManFM" "File manager" (spawn "pcmanfm")) []
+       , Node (TS.TSNode "PCManFM-QT" "File manager" (spawn "pcmanfm-qt")) []
        ]
    , Node (TS.TSNode "+ Games" "fun and games" (return ()))
-       [ Node (TS.TSNode "Steam" "Steam" (spawn "steam")) []]
+       []
    , Node (TS.TSNode "+ Graphics" "graphics programs" (return ()))
        []
    , Node (TS.TSNode "+ Internet" "internet and web programs" (return ()))
        [ Node (TS.TSNode "Firefox" "Open source web browser" (spawn "firefox")) []
-       , Node (TS.TSNode "Brave" "A web browser that stops ads and trackers by default." (spawn "brave")) []
        ]
    , Node (TS.TSNode "+ Multimedia" "sound and video applications" (return ()))
        []
    , Node (TS.TSNode "+ Office" "office applications" (return ()))
        []
    , Node (TS.TSNode "+ Programming" "programming and scripting tools" (return ()))
-       [ Node (TS.TSNode "Rider" "JetBrains IDE" (spawn "rider")) []
+       [ Node (TS.TSNode "Code" "VS Code" (spawn "code")) []
        ]
    , Node (TS.TSNode "+ System" "system tools and utilities" (return ()))
        [ Node (TS.TSNode "Alacritty" "GPU accelerated terminal" (spawn "alacritty")) []
@@ -146,8 +145,8 @@ tsDefaultConfig = TS.TSConfig { TS.ts_hidechildren = True
                               , TS.ts_extra        = 0xffd0d0d0
                               , TS.ts_node_width   = 200
                               , TS.ts_node_height  = 20
-                              , TS.ts_originX      = 0
-                              , TS.ts_originY      = 0
+                              , TS.ts_originX      = 5
+                              , TS.ts_originY      = 15
                               , TS.ts_indent       = 80
                               , TS.ts_navigate     = myTreeNavigation
                               }
