@@ -4,9 +4,6 @@
 # Your source directory. Default is the config dir, if it can be found.
 SRC_DIR=
 
-# Executable name, from the executable stanza of your cabal file.
-EXE_NAME=my-xmonad
-
 # Where will be the executable placed
 INSTALL_DIR="$HOME/.cabal/bin"
 ##############################################################################
@@ -31,12 +28,10 @@ fi
 
 cd "$SRC_DIR"
 
-for exe in $EXE_NAME; do
-    cabal install exe:"$EXE_NAME" \
-	  --enable-executable-stripping \
-	  --enable-optimization=2 \
-	  --installdir="$INSTALL_DIR" \
-	  --overwrite-policy=always
+cabal install my-xmonad:xmonad \
+    --enable-executable-stripping \
+    --enable-optimization=2 \
+    --installdir="$INSTALL_DIR" \
+    --overwrite-policy=always
 
-    ln -sf "$INSTALL_DIR/$exe" "$output"
-done
+ln -sf "$INSTALL_DIR/xmonad" "$output"
