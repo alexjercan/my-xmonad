@@ -10,3 +10,6 @@
 [submodule "x11"]
 	path = x11
 	url = https://github.com/xmonad/X11.git
+[submodule "X11"]
+	path = X11
+	url = https://github.com/xmonad/X11.git
