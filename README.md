@@ -17,6 +17,8 @@ Examples:
   - `$HOME/.bashrc`: `[ -f "$HOME/.ghcup/env" ] && source "$HOME/.ghcup/env"`
   - `$HOME/.ghcup/env`: `export PATH="$PATH:$HOME/.cabal/bin:$HOME/.ghcup/bin"`
 
+[more](https://stackoverflow.com/questions/14637979/how-to-permanently-set-path-on-linux-unix)
+
 # Installation
 
 ```bash
