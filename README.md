@@ -9,6 +9,9 @@ Build xmonad from source using my custom config file.
 * cabal 3.4.0.0
 * GHC 8.10.3
 
+You also need to add `$HOME/.cabal/bin` and `$HOME/.ghcup/bin` to the system PATH. <br>
+You can do this by adding the following line to the `$HOME/.bash_profile`: `export PATH="$PATH:$HOME/.cabal/bin:$HOME/.ghcup/bin"`
+
 # Installation
 
 ```bash
