@@ -3,7 +3,7 @@ name: my-xmonad
 version: 1
 build-type: Simple
 
-executable my-xmonad
+executable xmonad
   main-is: xmonad.hs
   build-depends: base, xmonad, xmonad-contrib, xmonad-extras
   ghc-options: -Wall -fno-warn-missing-signatures
